@@ -3,15 +3,24 @@
   <div class="card">
     <div class="row g-0">
       <div class="col-md-6 border-end">
-        <div class="d-flex flex-column justify-content-center">
-          <div *ngFor="let img of product.images">
+        <div class="">
+          <div>
+            <p-galleria [value]="product.images" [responsiveOptions]="responsiveOptions"
+            [containerStyle]="{'max-width': '660px'}" [numVisible]="3" thumbnailsPosition="left">
+            <ng-template pTemplate="item" let-item>
+              <!--img [src]="item" class="img-fluid" style="width: 100%;height:auto;align-items: center" /-->
+              <p-image [src]="item" class="my-auto" alt="Image" style="width: 50%;height:auto;display:block" [preview]="true"></p-image>
 
-            <img src="{{img}}" width="350" alt="">
+            </ng-template>
+            <ng-template pTemplate="thumbnail" let-item>
+              <div class="grid grid-nogutter justify-content-center" >
+                <img [src]="item" style="max-width:180px" />
+              </div>
+            </ng-template>
+          </p-galleria>
+          </div>
 
-          </div>
-          <div  class="main_image">
-            <img src="" id="main_product_image" width="350">
-          </div>
+
         </div>
       </div>
       <div class="col-md-6">
@@ -42,6 +51,9 @@
           </div> -->
           <div class="buttons d-flex flex-row mt-5 gap-3"> <button class="btn btn-outline-dark">Buy Now</button> <button
               class="btn btn-dark">Add to Basket</button> </div>
+          <button pButton type="button" label="Click"></button>
+          <button pButton type="button" label="Danger" class="p-button-danger"></button>
+
           <!-- <div class="search-option"> <i class='bx bx-search-alt-2 first-search'></i>
             <div class="inputs"> <input type="text" name=""> </div> <i class='bx bx-share-alt share'></i>
           </div> -->
@@ -55,3 +67,4 @@
 
 
 </div>
+

@@ -10,6 +10,13 @@ import { HomeComponent } from './components/home/home.component';
 import { ShopGridComponent } from './components/shop-grid/shop-grid.component';
 import { HeaderSectionComponent } from './components/header-section/header-section.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import {ButtonModule} from 'primeng/button';
+import {GalleriaModule} from 'primeng/galleria';
+import {ImageModule} from 'primeng/image';
+import { FaqComponent } from './components/faq/faq.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ShopCartComponent } from './components/shop-cart/shop-cart.component';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -19,12 +26,19 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     HomeComponent,
     ShopGridComponent,
     HeaderSectionComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    FaqComponent,
+    AboutUsComponent,
+    ShopCartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ButtonModule,
+    GalleriaModule,ImageModule,
+    TableModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

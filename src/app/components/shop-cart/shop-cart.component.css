@@ -1,0 +1,19 @@
+.card{
+  background-color: var(--neutral-Color1)!important;;
+}
+.btnCartTotal{
+  background-color: var(--color-success)!important;;
+  border: none;
+  border-radius:2px;
+}
+.btnCalculateShpping{
+  background-color: var(--link-color)!important;;
+  border: none;
+  border-radius:2px;
+}
+input{
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid var(--gray-400);
+  background-color: rgba(0, 0, 0, 0);
+}

@@ -11,21 +11,37 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-  product:Product|any;
-  routeSubscriptions: Subscription|any;
-  constructor(private productService:ProductService,private avtiveRoute:ActivatedRoute) {}
+  product: Product | any;
+  routeSubscriptions: Subscription | any;
 
-  ngOnInit(): void {
-    this.routeSubscriptions=this.avtiveRoute.params.subscribe(params => {
-      console.log(params['id']);
-      this.productService.getProductById(params['id']).subscribe(product => {
-        this.product=product;
-        console.log(product.images);
-
-      })
-    })
-
+  responsiveOptions: any[] = [
+  {
+breakpoint: '1024px',
+  numVisible: 5
+  },
+  {
+breakpoint: '768px',
+  numVisible: 3
+  },
+  {
+breakpoint: '560px',
+  numVisible: 1
   }
+];
+
+constructor(private productService: ProductService, private avtiveRoute: ActivatedRoute) { }
+
+ngOnInit(): void {
+  this.routeSubscriptions = this.avtiveRoute.params.subscribe(params => {
+    console.log(params['id']);
+    this.productService.getProductById(params['id']).subscribe(product => {
+      this.product = product;
+      console.log(product.images);
+
+    })
+  })
+
+}
   //
 
 }
