@@ -1,0 +1,30 @@
+nav{
+  background-color: var(--navbar-bg)!important;
+
+}
+header{
+  font-size: var(--font-size-lg);
+  background-color: #7E33E0;
+}
+
+header a{
+  color: var(--white);
+  font-size: var(--font-size-lg);
+}
+header span{
+  color: var(--white);
+  font-size: var(--font-size-lg);
+}
+.dropdown-menu a{
+  color: var(--text-color);
+}
+a{
+  color: var(--gray-900);
+  text-decoration: var(--link-hover-decoration);
+}
+a:hover{
+  color: var(--link-hover-color);
+}
+.leftItems{
+  padding-left:25%;
+}
