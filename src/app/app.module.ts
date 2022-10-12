@@ -17,6 +17,8 @@ import { FaqComponent } from './components/faq/faq.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ShopCartComponent } from './components/shop-cart/shop-cart.component';
 import {TableModule} from 'primeng/table';
+import { LatestProductsComponent } from './components/latest-products/latest-products.component';
+import { TopCategoriesComponent } from './components/top-categories/top-categories.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import {TableModule} from 'primeng/table';
     ProductDetailsComponent,
     FaqComponent,
     AboutUsComponent,
-    ShopCartComponent
+    ShopCartComponent,
+    LatestProductsComponent,
+    TopCategoriesComponent
   ],
   imports: [
     BrowserModule,
