@@ -19,6 +19,9 @@ import { ShopCartComponent } from './components/shop-cart/shop-cart.component';
 import {TableModule} from 'primeng/table';
 import { LatestProductsComponent } from './components/latest-products/latest-products.component';
 import { TopCategoriesComponent } from './components/top-categories/top-categories.component';
+import { SponsorsComponent } from './components/sponsors/sponsors.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { TopCategoriesComponent } from './components/top-categories/top-categori
     AboutUsComponent,
     ShopCartComponent,
     LatestProductsComponent,
-    TopCategoriesComponent
+    TopCategoriesComponent,
+    SponsorsComponent,
+    ContactUsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
