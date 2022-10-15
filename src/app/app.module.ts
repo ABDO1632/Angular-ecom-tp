@@ -22,6 +22,9 @@ import { TopCategoriesComponent } from './components/top-categories/top-categori
 import { SponsorsComponent } from './components/sponsors/sponsors.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ShopLeftSidebarComponent } from './components/shop-left-sidebar/shop-left-sidebar.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     TopCategoriesComponent,
     SponsorsComponent,
     ContactUsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ShopLeftSidebarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +52,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     HttpClientModule,
     ButtonModule,
     GalleriaModule,ImageModule,
-    TableModule
+    TableModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

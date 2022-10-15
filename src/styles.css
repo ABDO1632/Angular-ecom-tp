@@ -92,3 +92,100 @@ button a {
 button a:hover {
   color: #fff;
 }
+
+/* Text/Fonts */
+.pink-text {
+  color: #fb2e86;
+}
+
+.yellow {
+  color: #ffc416;
+}
+
+.grey-text {
+  color: #0000007f;
+}
+
+.blue-text {
+  color: #151875;
+}
+
+#text-left {
+  text-align: left;
+}
+
+.main-header-text {
+  color: #151875;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+/* Background colors */
+.main-bg {
+  background-color: #f1f0ff;
+}
+
+#bg-pink {
+  background-color: #fb2e8728;
+}
+
+/* input */
+.search-input {
+  display: flex;
+}
+
+input {
+  outline: none;
+}
+
+.search-input input{
+  border: 2px solid #0000002b;
+}
+
+.search-input button {
+  padding: 10px 15px;
+}
+
+
+/* Images */
+img {
+  /* object-fit: cover; */
+  width: 100%;
+}
+/* padding */
+.pt-2 {
+  padding: 10px 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-bottom: 40px;
+  color: #151875;
+}
+
+.header .right {
+  display: flex;
+}
+
+.header .right > form {
+  padding-left: 20px;
+}
+
+.header .right input {
+  width: 30px;
+}

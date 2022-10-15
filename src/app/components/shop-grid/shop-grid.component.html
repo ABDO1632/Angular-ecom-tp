@@ -1,27 +1,60 @@
 <app-header-section sectionTitle="shop" sectionSlogan="slogan"></app-header-section>
-<section class="py-5">
-  <div class="container px-4 px-lg-5 mt-5">
-      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-        <div class="col mb-5" *ngFor="let product of products">
-          <div  class="card h-100">
-              <!-- Product image-->
-              <img class="card-img-top pt-3 mx-auto" [src]="product.thumbnail" style="max-width: 200px;max-height: 200px" alt="..." />
-              <!-- Product details-->
-              <div class="card-body p-4">
-                  <div class="text-center">
-                      <!-- Product name-->
-                      <h5 class="fw-bolder">{{product.title}}</h5>
-                      <!-- Product price-->
-                      ${{product.price}}
-                  </div>
-              </div>
-              <!-- Product actions-->
-              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                  <div class="text-center"><a class="btn btn-outline-dark mt-auto" (click)="goToProductDetailsPage(3)">View options</a></div>
-              </div>
+<section class="shop-grid">
+  <div class="container">
+    <div class="header">
+      <div class="left">
+        <h2 class="blue-text">Ecommerce Accesories & Fashion item</h2>
+        <p class="grey-text">About </p>
+      </div>
+
+      <div class="right">
+        <form [formGroup]="limitForm" (change)="sumbetLimitPage()">
+          <label>Per Page:</label>
+          <input  formControlName="numberPage"  type="number" class="mx-2">
+          <input formControlName="keywordPage" width="329px" type="text" placeholder="Search products" class="w-50 mx-2" >
+        </form>
+        <form >
+          <label>Sort By:</label>
+          <select class="mx-2" name="" id="">
+            <option value="">Best Match</option>
+            <option value="">Price</option>
+          </select>
+        </form>
+        <form>
+          <label>View:</label>
+          <a class="mx-2" [routerLink]="['/shop-left-cart']"><i class="fas fa-list fs-3"></i></a>
+          <a class="mx-2" [routerLink]="['/shop-grid']"><i class="fa-solid fa-grip fs-3"></i></a>
+
+        </form>
+      </div>
+    </div>
+
+    <div class="grid-wrapper">
+      <a (click)="goToProductDetailsPage(product.id)" *ngFor="let product of products" style="cursor: pointer;">
+        <div class="soft-card">
+          <div class="thumbnail">
+            <img class="card-img-top pt-5 mx-auto" [src]="product.thumbnail" alt=""
+            style=" vertical-align: middle;
+                    max-width: 200px;
+                    max-height: 500px;
+                    height: 200px;"
+            >
+          </div>
+          <div class="description">
+            <h3 class="blue-text">{{product.title}}</h3>
+            <div class="price">
+              <p class="blue-text">${{product.price}}</p>
+              <p class="pink-text line-through">${{product.discountPercentage}}</p>
+            </div>
           </div>
         </div>
-
-      </div>
+      </a>
+    </div>
+  </div>
+  <div class="slider-indicator">
+    <span id="active"></span>
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
 </section>

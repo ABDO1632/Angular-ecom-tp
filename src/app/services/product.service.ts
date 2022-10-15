@@ -12,8 +12,11 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getProducts(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>("https://dummyjson.com/products?limit=10");
+  public getProducts(limit:number): Observable<Product[]> {
+    return this.httpClient.get<Product[]>("https://dummyjson.com/products?limit="+limit);
+  }
+  public SearchProducts(limit:number,keyword:string): Observable<Product[]> {
+    return this.httpClient.get<Product[]>("https://dummyjson.com/products/search?q="+keyword+"&limit="+limit);
   }
   public getProductById(id:number): Observable<Product> {
     return this.httpClient.get<Product>("https://dummyjson.com/products/"+id);
@@ -23,5 +26,8 @@ export class ProductService {
   }
   public getProductByCategorie(categorie:string): Observable<Product[]> {
     return this.httpClient.get<Product[]>("https://dummyjson.com/products/category/"+categorie+"?limit=4");
+  }
+  public getProductCategories(): Observable<[]> {
+    return this.httpClient.get<[]>("https://dummyjson.com/products/categories");
   }
 }
