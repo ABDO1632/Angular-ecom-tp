@@ -25,6 +25,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ShopLeftSidebarComponent } from './components/shop-left-sidebar/shop-left-sidebar.component';
 import { LoginComponent } from './components/login/login.component';
+import { ShopexSectionComponent } from './components/shopex-section/shopex-section.component';
+import { TrendingProductsSectionComponent } from './components/trending-products-section/trending-products-section.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { LoginComponent } from './components/login/login.component';
     ContactUsComponent,
     NotFoundComponent,
     ShopLeftSidebarComponent,
-    LoginComponent
+    LoginComponent,
+    ShopexSectionComponent,
+    TrendingProductsSectionComponent,
   ],
   imports: [
     BrowserModule,

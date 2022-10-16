@@ -1,19 +1,29 @@
-
-
-
-<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-
-  <div class="col-3 mb-5" *ngFor="let product of latest_products">
-    <div  class="card h-100">
-        <img class="card-img-top pt-3 mx-auto" [src]="product.thumbnail" style="max-width: 200px;max-height: 200px" alt="..." />
-        <div class="card-body p-4">
-            <div class="text-center">
-                <h5 class="fw-bolder">{{product.title}}</h5>
-                ${{product.price}}
-            </div>
-        </div>
-        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-        </div>
-    </div>
+<section class="latest mx-3">
+  <div class="container">
+      <div class="flex">
+          <div class="product-nav">
+              <h2 class="main-header-text">Latest Products</h2>
+              <div class="links">
+                  <a href="" id="active">New Arrival</a>
+                  <a href="">Best Seller</a>
+                  <a href="">Featured</a>
+                  <a href="">Special Offer</a>
+              </div>
+          </div>
+          <div class="flex-wrapper bold-text main-header-text">
+              <div class="col col-3 mx-3" *ngFor="let product of latest_products">
+                  <div class="thumbnail">
+                      <img style="width: 200px; height:200px" [src]="product.thumbnail" alt="">
+                  </div>
+                  <div class="text">
+                      <p>{{product.title}}</p>
+                      <div class="tag">
+                          <p>${{product.price}}</p>
+                          <p class="line-through pink-text">${{product.price}}</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
   </div>
-</div>
+</section>

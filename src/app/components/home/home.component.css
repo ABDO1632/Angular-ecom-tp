@@ -2,3 +2,40 @@
 #carouselLatestNews{
     background-color: var(--neutral-Color2);
 }
+/* Newsletter */
+section.newsletter {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+section.newsletter .flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 70px 0;
+}
+/* Header/Hero Section */
+header.hero-section .flex {
+  display: grid;
+  grid-template-columns: 450px 450px;
+  place-items: center;
+  justify-content: center;
+  padding: 50px 0;
+  width: 100%;
+}
+
+header.hero-section .flex > * {
+  margin: 10px;
+}
+
+header.hero-section .container {
+  position: relative;
+}
+.lamp {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  top: 0;
+  left: 80%;
+}

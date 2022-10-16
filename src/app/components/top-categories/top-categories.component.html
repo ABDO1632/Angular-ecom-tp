@@ -1,4 +1,7 @@
+
 <div class="row">
+  <h2 class="main-header-text">Top Categories</h2>
+
   <div id="carouselLatestNews" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselLatestNews" data-bs-slide-to="0" class="active" aria-current="true"
@@ -6,12 +9,10 @@
       <button type="button" data-bs-target="#carouselLatestNews" data-bs-slide-to="1" aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#carouselLatestNews" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="../../../assets/images/home-bg.jpg" class="d-block w-100" alt="...">
 
-      </div>
-      <div class="carousel-item" *ngFor="let data of products; let i = index">
+    <div class="carousel-inner">
+      <div class="carousel-item " [ngClass]="{'active': carouselIndecator == i}" *ngFor="let data of products; let i = index">
+
 
         <section class="top">
           <div class="container">
@@ -24,7 +25,7 @@
                   <div class="rounded-card">
                     <img [src]="prod.thumbnail" style="clip-path: circle(50% at 50% 50%);" width="215" height="215" alt="">
                   </div>
-                  <h3 style="max-width: 200px;word-wrap: break-word;">{{ prod.title }}</h3>
+                  <h3 class="fs-5" style="max-width: 200px;word-wrap: break-word;">{{ prod.title }}</h3>
                   <p>${{ prod.price }}</p>
                 </div>
 
@@ -39,13 +40,7 @@
         </section>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselLatestNews" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselLatestNews" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+
   </div>
 </div>
+

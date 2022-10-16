@@ -1,0 +1,43 @@
+
+/* Section - latest products */
+section.latest .flex-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+section.latest .product-nav {
+  text-align: center;
+}
+
+
+.col .thumbnail {
+  background-color: #f1f0ff;
+  width: 100%;
+
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.col .text {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+}
+.links {
+  display: flex;
+  justify-content: center;
+}
+
+.links > * {
+  padding: 0 10px;
+}
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fb2e86;
+}

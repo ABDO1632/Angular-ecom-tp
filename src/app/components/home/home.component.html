@@ -1,5 +1,8 @@
 <div class="container">
   <div class="row">
+    <header class="hero-section main-bg">
+
+  </header>
     <div id="carouselLatestNews" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselLatestNews" data-bs-slide-to="0" class="active"
@@ -8,33 +11,55 @@
         <button type="button" data-bs-target="#carouselLatestNews" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="../../../assets/images/home-bg.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="../../../assets/images/portfolio-img4.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="../../../assets/images/portfolio-img6.jpg" class="d-block w-100" alt="...">
-        </div>
+        <div class="carousel-item" [ngClass]="{'active': carouselIndecator == i}" *ngFor="let product of products; let i = index">
+          <div class="container">
+            <div class="flex py-5">
 
+                <img  [src]="product.thumbnail" style="width: 200px; height:200px" class="lamp">
+                <div class="hero-text">
+                    <h2 class="pink-text">Best furniture For Your Castle...</h2>
+                    <h1>New Furniture Collection Trends in 2020</h1>
+                    <p class="grey-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quisquam, facere distinctio praesentium cupiditate itaque quidem quam.</p>
+                    <button class="primary-btn"><a href="./shop-grid.html">Shop Now</a></button>
+                </div>
+                <div class="hero-img">
+                    <img src="img/Ellipse 60.svg" alt="" class="ellipse-1 ellipse">
+                    <img src="img/Ellipse 60.svg" alt="" class="ellipse-2 ellipse">
+                    <img src="img/Group 130.png" alt="" class="discount">
+                    <img src="img/Shell-Shaped-Armchair-Pink-Velvet-Fabric-One-Seater-Sofa-for-Living-Room 1.png" alt="" class="couch">
+                </div>
+            </div>
+        </div>
+        </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselLatestNews" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselLatestNews" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+
     </div>
   </div>
   <div class="row">
-    <h1 class="mx-auto align-center">Latest products</h1>
     <app-latest-products></app-latest-products>
   </div>
   <div class="row">
-    <h1 class="mx-auto align-center">Top Categories</h1>
+    <app-shopex-section></app-shopex-section>
+  </div>
+  <div class="row">
+    <app-trending-products-section [products]="products"></app-trending-products-section>
+  </div>
+  <div class="row">
     <app-top-categories></app-top-categories>
   </div>
+
+  <div class="row">
+    <!-- Newsletter -->
+    <section class="newsletter my-2" style="background-image: url(../../../assets/images/backgroundItem.png);">
+      <div class="container">
+        <div class="flex">
+          <h2 class="main-header-text">Get Latest Update By Subscribing<br>
+            to our Newsletter
+          </h2>
+          <button class="primary-btn">Shop Now</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  <app-sponsors></app-sponsors>
 </div>

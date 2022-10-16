@@ -24,7 +24,8 @@ const routes: Routes = [
   {path:"login",component:LoginComponent},
 
   {path:"product-details/:id",component:ProductDetailsComponent},
-  {path:"shopCart/:id",component:ShopCartComponent}
+  {path:"shopCart/:id",component:ShopCartComponent},
+  {path:"**",component:NotFoundComponent}
 
 ];
 

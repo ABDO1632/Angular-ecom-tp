@@ -2,11 +2,11 @@
 
 <section class="login-form">
   <div class="container">
-      <form>
+      <form [formGroup]="loginForm" (ngSubmit)="sumbet()">
           <h2>Login</h2>
           <p class="grey-text">Please login using account detail below.</p>
-          <input type="text" placeholder="Email Address">
-          <input type="password" placeholder="Password">
+          <input  formControlName="username" type="text" placeholder="User name"  class="form-control">
+          <input formControlName="password"  type="password" placeholder="Password"  class="form-control">
           <a href="#" class="grey-text" id="text-left">Forgot your password?</a>
           <button>Sign In</button>
           <p class="grey-text">Don't have an Account? <a href="#" class="grey-text">Create account</a></p>

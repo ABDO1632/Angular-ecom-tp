@@ -1,0 +1,18 @@
+<section class="shopex">
+  <div class="container">
+    <h2 class="main-header-text">Trending Products
+    </h2>
+    <div class="flex">
+      <div class="small-card" *ngFor="let product of products">
+        <img style="width: 200px; height:200px" [src]="product.thumbnail" alt="">
+        <div class="text">
+          <h3 class="main-header-text fs-5">{{product.title}}</h3>
+          <div class="price">
+            <p class="main-header-text bold-text">{{product.price}}</p>
+            <p class="line-through grey-text">${{discountPrice(product.price,product.discountPercentage)}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
