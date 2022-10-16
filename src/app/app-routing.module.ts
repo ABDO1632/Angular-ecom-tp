@@ -12,6 +12,8 @@ import { ShippingPageComponent } from './components/shipping-page/shipping-page.
 import { ShopCartComponent } from './components/shop-cart/shop-cart.component';
 import { ShopGridComponent } from './components/shop-grid/shop-grid.component';
 import { ShopLeftSidebarComponent } from './components/shop-left-sidebar/shop-left-sidebar.component';
+import { AuthentificationGuard } from './guard/authentification.guard';
+import { LoginGuard } from './guard/login.guard';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -21,14 +23,15 @@ const routes: Routes = [
   {path:"not-found",component:NotFoundComponent},
   {path:"shop-left-cart",component:ShopLeftSidebarComponent},
   {path:"shop-grid",component:ShopGridComponent},
-  {path:"shipping-payement",component:ShippingPageComponent},
-  {path:"order-complete",component:OrderCompletePageComponent},
+
+  {path:"shipping-payement",component:ShippingPageComponent,canActivate:[AuthentificationGuard]},
+  {path:"order-complete",component:OrderCompletePageComponent,canActivate:[AuthentificationGuard]},
 
   {path:"faq",component:FaqComponent},
-  {path:"login",component:LoginComponent},
+  {path:"login",component:LoginComponent,canActivate:[LoginGuard]},
 
   {path:"product-details/:id",component:ProductDetailsComponent},
-  {path:"shopCart/:id",component:ShopCartComponent},
+  {path:"shopCart/:id",component:ShopCartComponent,canActivate:[AuthentificationGuard]},
   {path:"**",component:NotFoundComponent}
 
 ];

@@ -49,6 +49,16 @@ export class ProductDetailsComponent implements OnInit {
     var p=Number(price)-(Number(price)*(Number(discountPercentage)/100))
     return p.toFixed(2);
   }
+  public checkLocalStorage(){
+    var exist:boolean=false;
+    if (localStorage.getItem("currentUser")) {
+      exist=true;
+    }
+    else{
+      exist=false;
+    }
+    return exist;
+  }
   roundNumberArray(numberOfStars: number) {
     let numberOfStarsRounded = Math.round(numberOfStars);
     let stars = [];
