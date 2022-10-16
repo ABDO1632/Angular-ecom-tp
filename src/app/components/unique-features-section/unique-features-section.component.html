@@ -1,0 +1,32 @@
+<section class="unique-features main-bg">
+  <div class="container">
+      <div class="flex">
+          <div class="image">
+              <img [src]="product.thumbnail" class="sofa">
+          </div>
+          <div class="product-features">
+              <h2 class="main-header-text" id="text-left">Unique Features Of latest &
+                  Trending Products
+              </h2>
+              <div class="feature-list">
+                  <div class="list">
+                      <span class="bullet-1 bullets"></span>
+                      <p class="grey-text">{{product.title}}</p>
+                  </div>
+                  <div class="list">
+                      <span class="bullet-2 bullets"></span>
+                      <p class="grey-text">{{product.description}}</p>
+                  </div>
+
+              </div>
+              <form>
+                  <button class="primary-btn"><a href="./shoping cart.html">Add To Cart</a></button>
+                  <div>
+                      <h5 class="blue-text">{{product.category}}</h5>
+                      <p class="blue-text">${{product.price}}</p>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</section>

@@ -29,6 +29,7 @@ import { ShopexSectionComponent } from './components/shopex-section/shopex-secti
 import { TrendingProductsSectionComponent } from './components/trending-products-section/trending-products-section.component';
 import { ShippingPageComponent } from './components/shipping-page/shipping-page.component';
 import { OrderCompletePageComponent } from './components/order-complete-page/order-complete-page.component';
+import { UniqueFeaturesSectionComponent } from './components/unique-features-section/unique-features-section.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { OrderCompletePageComponent } from './components/order-complete-page/ord
     TrendingProductsSectionComponent,
     ShippingPageComponent,
     OrderCompletePageComponent,
+    UniqueFeaturesSectionComponent,
   ],
   imports: [
     BrowserModule,
