@@ -24,6 +24,9 @@ export class ProductService {
   public getShoppingCartByUser(id:number): Observable<ShopCart> {
     return this.httpClient.get<ShopCart>("https://dummyjson.com/carts/user/"+id);
   }
+  public deleteShopCart(id:number){
+    return this.httpClient.delete<any>("https://dummyjson.com/carts/"+id);
+  }
   public getProductByCategorie(categorie:string): Observable<Product[]> {
     return this.httpClient.get<Product[]>("https://dummyjson.com/products/category/"+categorie+"?limit=4");
   }

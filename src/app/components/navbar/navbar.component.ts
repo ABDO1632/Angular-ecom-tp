@@ -35,7 +35,6 @@ export class NavbarComponent implements OnInit {
     }
   }
   public logout(){
-    console.log("cece");
     localStorage.removeItem('currentUser');
 
   }

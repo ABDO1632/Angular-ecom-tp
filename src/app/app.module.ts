@@ -27,6 +27,8 @@ import { ShopLeftSidebarComponent } from './components/shop-left-sidebar/shop-le
 import { LoginComponent } from './components/login/login.component';
 import { ShopexSectionComponent } from './components/shopex-section/shopex-section.component';
 import { TrendingProductsSectionComponent } from './components/trending-products-section/trending-products-section.component';
+import { ShippingPageComponent } from './components/shipping-page/shipping-page.component';
+import { OrderCompletePageComponent } from './components/order-complete-page/order-complete-page.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { TrendingProductsSectionComponent } from './components/trending-products
     LoginComponent,
     ShopexSectionComponent,
     TrendingProductsSectionComponent,
+    ShippingPageComponent,
+    OrderCompletePageComponent,
   ],
   imports: [
     BrowserModule,

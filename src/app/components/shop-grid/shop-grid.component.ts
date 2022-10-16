@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Product } from 'src/app/interface/Product.interface';
 
 
@@ -13,6 +14,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ShopGridComponent implements OnInit {
   products:Product[]|any=[];
+  productSubscription : Subscription | undefined ;
   limitNumber:number| any=20;
   keyword:string|any="";
   limitForm= new FormGroup({
@@ -20,13 +22,14 @@ export class ShopGridComponent implements OnInit {
     keywordPage:new FormControl('',[Validators.required]),
 
   });
+
   constructor(private productService: ProductService,private router:Router) { }
 
   ngOnInit(): void {
     this.callApiProducts();
   }
   callApiProducts():void {
-    this.productService.getProducts(this.limitNumber).subscribe((products) => {
+    this.productSubscription=this.productService.getProducts(this.limitNumber).subscribe((products) => {
       this.products = Object.values(products)[0];
       console.log("api** =");
       console.log(Object.values(products)[0]);
@@ -36,7 +39,7 @@ export class ShopGridComponent implements OnInit {
     });
   }
   callApiSearchProducts():void {
-    this.productService.SearchProducts(this.limitNumber,this.keyword).subscribe((products) => {
+    this.productSubscription=this.productService.SearchProducts(this.limitNumber,this.keyword).subscribe((products) => {
       this.products = Object.values(products)[0];
       console.log(products);
     });
@@ -47,23 +50,21 @@ export class ShopGridComponent implements OnInit {
 
 
    sumbetLimitPage(): void{
-    console.log("CHeck null "+Object.values(this.limitForm.value)[0]);
-    if(Object.values(this.limitForm.value)[0]==null){
-      console.log("CHeck 2 ");
-
-      this.limitNumber=Object.values(this.limitForm.value)[0];
+    if(Object.values(this.limitForm.value)[0]==""){
+      this.limitNumber=20;
     }
     else{
-      this.limitNumber=20;
-      console.log("CHeck 3 ");
-
+      this.limitNumber=Object.values(this.limitForm.value)[0];
     }
-    if(Object.values(this.limitForm.value)[0]!=null){
+    if(Object.values(this.limitForm.value)[1]!=""){
       this.keyword=Object.values(this.limitForm.value)[1];
     }
-
     console.log(Object.values(this.limitForm.value));
     console.log("limit=>"+this.limitNumber+"||keyword=>"+this.keyword);
     this.callApiSearchProducts();
   }
+  ngOnDestroy(): void {
+    this.productSubscription?.unsubscribe();
+  }
+
 }

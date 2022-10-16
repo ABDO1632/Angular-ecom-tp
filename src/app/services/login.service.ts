@@ -10,17 +10,16 @@ export class LoginService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public login(username: string|any, password: string|any) {
+  public login(username: string | any, password: string | any) {
     return this.httpClient.post<any>(`https://dummyjson.com/auth/login`, { username: username, password: password })
-        .pipe(map(user => {
-            // login successful if there's a jwt token in the response
-            if (user && user.token) {
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
-            }
-
-            return user;
-        }));
-}
+      .pipe(map(user => {
+        // login successful if there's a token in the response
+        if (user && user.token) {
+          // store user details and token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('currentUser', JSON.stringify(user));
+        }
+        return user;
+      }));
+  }
 
 }

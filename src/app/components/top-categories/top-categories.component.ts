@@ -43,4 +43,7 @@ export class TopCategoriesComponent implements OnInit {
     console.log(this.categories[1])
 
   }
+  ngOnDestroy(): void {
+    this.categorieSubscription?.unsubscribe();
+  }
 }

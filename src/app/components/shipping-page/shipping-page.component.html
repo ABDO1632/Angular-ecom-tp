@@ -1,0 +1,73 @@
+<app-header-section sectionTitle="shipping" sectionSlogan="Home . Pages . shipping"></app-header-section>
+
+<section class="hekto-demo-page">
+  <div class="container">
+      <div class="demo-header">
+          <h3 class="blue-text">Hekto Demo</h3>
+          <p class="blue-text">Cart/Information/Shipping/Payment</p>
+      </div>
+      <div class="demo-body">
+          <div class="contact-information">
+              <div>
+                  <div class="hekto-header">
+                      <h3 class="blue-text">Contact Information</h3>
+                      <p class="grey-text">Already have an account? <a href="./my account.html">Log in</a></p>
+                  </div>
+                  <input type="text" placeholder="Email of mobile phone number">
+                  <div><input type="checkbox"><span class="grey-text">Keep me up to date on news and exclusive offers</span></div>
+              </div>
+
+              <div>
+                  <div class="hekto-header">
+                      <h3 class="blue-text">Shipping address</h3>
+                  </div>
+                      <div class="two-col">
+                          <input type="text" placeholder="First name (optional)">
+                          <input type="text" placeholder="Last name">
+                      </div>
+                      <input type="text" placeholder="Address">
+                      <input type="text" placeholder="Appaetnent, suit,e.t.c (optional)">
+                      <input type="text" placeholder="City">
+                      <div class="two-col">
+                          <input type="text" placeholder="Country">
+                          <input type="text" placeholder="Postal Code">
+                      </div>
+              </div>
+              <button>Continue Shipping</button>
+          </div>
+          <div class="hekto-sidebar">
+              <div class="demo-related-products">
+                  <div *ngFor="let product of shopCartProducts.products; let i = index">
+                      <div class="details">
+                          <img [src]="pictures[i]" alt="">
+                          <div>
+                              <h4 class="blue-text">{{product.title}}</h4>
+                              <p class="grey-text">Brand: {{product.brand}}</p>
+                              <p class="grey-text">Rating: {{product.rating}}</p>
+                          </div>
+                      </div>
+                      <div class="price">
+                          <p class="blue-text">${{product.price}}</p>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="checkout">
+                  <div>
+                      <h3 class="blue-text">Subtotals:</h3>
+                      <p class="blue-text">$216.00</p>
+                  </div>
+                  <div>
+                      <h3 class="blue-text">Totals:</h3>
+                      <p class="blue-text">$325.00</p>
+                  </div>
+                  <form class="grey-text">
+                      <input type="checkbox">
+                      shipping & taxes calculated at checkout
+                  </form>
+                  <button [routerLink]="['/order-complete']"  class="checkout-btn">Proceed To Checkout</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>

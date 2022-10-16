@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Product } from 'src/app/interface/Product.interface';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -11,6 +12,7 @@ export class LatestProductsComponent implements OnInit {
 
   constructor(private productService: ProductService) { }
   latest_products:Product[]|any=[];
+  productSubscription : Subscription | undefined ;
 
   ngOnInit(): void {
     for (let index = 0; index < 6; index++) {
@@ -20,5 +22,7 @@ export class LatestProductsComponent implements OnInit {
       })
     }
   }
-
+  ngOnDestroy(): void {
+    this.productSubscription?.unsubscribe();
+  }
 }

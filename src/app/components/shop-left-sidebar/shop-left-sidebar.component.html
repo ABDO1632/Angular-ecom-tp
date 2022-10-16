@@ -79,10 +79,8 @@
         <div [formGroup]="categorieForm" class="form-group categories">
           <h3 class="blue-text underline">Categories</h3>
           <div *ngFor="let categorie of categories">
-            <input formControlName="categoriePage"
-            (change)="checkValue(categorie)"
-            type="checkbox"
-            value="{{ categorie}}">
+            <input formControlName="categoriePage" (change)="checkValue(categorie)" type="checkbox"
+              value="{{ categorie}}">
             {{categorie}}
           </div>
         </div>
@@ -98,7 +96,7 @@
       </aside>
 
       <div class="shop-list-container">
-        <div class="col" *ngFor="let product of products">
+        <div class="col shadow p-3 mb-5 bg-body rounded" style="cursor: pointer;" *ngFor="let product of products" (click)="goToProductDetailsPage(product.id)">
           <img [src]="product.thumbnail" alt="" class="list-thumbnail my-4" style="width:284px;height:197px">
           <div class="details">
             <h3 class="blue-text">{{product.title}}</h3>

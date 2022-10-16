@@ -18,6 +18,7 @@ export class ShopLeftSidebarComponent implements OnInit {
   keyword:string|any="";
   categorie:string|any="sunglasses";
   categorieSubscription : Subscription | undefined ;
+  productSubscription : Subscription | undefined ;
 
   limitForm= new FormGroup({
     numberPage:new FormControl('',[Validators.required, Validators.min(1),Validators.max(100)]),
@@ -34,7 +35,7 @@ export class ShopLeftSidebarComponent implements OnInit {
     this.callApiProducts();
   }
   callApiProducts():void {
-    this.productService.getProducts(this.limitNumber).subscribe((products) => {
+    this.productSubscription=this.productService.getProducts(this.limitNumber).subscribe((products) => {
       this.products = Object.values(products)[0];
       console.log("api** =");
       console.log(Object.values(products)[0]);
@@ -43,13 +44,13 @@ export class ShopLeftSidebarComponent implements OnInit {
     });
   }
   callApiSearchProducts():void {
-    this.productService.SearchProducts(this.limitNumber,this.keyword).subscribe((products) => {
+    this.productSubscription=this.productService.SearchProducts(this.limitNumber,this.keyword).subscribe((products) => {
       this.products = Object.values(products)[0];
       console.log(products);
     });
   }
   callApiProductCategories():void {
-    this.productService.getProductCategories().subscribe((category) => {
+    this.categorieSubscription=this.productService.getProductCategories().subscribe((category) => {
       this.categories=category;
       console.log("**categories ↓↓↓↓");
 
@@ -57,7 +58,7 @@ export class ShopLeftSidebarComponent implements OnInit {
     });
   }
   callApiProductsByCategorie():void {
-    this.categorieSubscription=this.productService.getProductByCategorie(this.categorie).subscribe( (product: Product[]) =>{
+    this.productSubscription==this.productService.getProductByCategorie(this.categorie).subscribe( (product: Product[]) =>{
       this.products=[]
        this.products=Object.values(product)[0];
       console.log("***categorie :"+this.categorie);
@@ -76,22 +77,16 @@ export class ShopLeftSidebarComponent implements OnInit {
   }
 
 
-   sumbetLimitPage(): void{
-    console.log("CHeck null "+Object.values(this.limitForm.value)[0]);
-    if(Object.values(this.limitForm.value)[0]==null){
-      console.log("CHeck 2 ");
-
-      this.limitNumber=Object.values(this.limitForm.value)[0];
+  sumbetLimitPage(): void{
+    if(Object.values(this.limitForm.value)[0]==""){
+      this.limitNumber=20;
     }
     else{
-      this.limitNumber=20;
-      console.log("CHeck 3 ");
-
+      this.limitNumber=Object.values(this.limitForm.value)[0];
     }
-    if(Object.values(this.limitForm.value)[0]!=null){
+    if(Object.values(this.limitForm.value)[1]!=""){
       this.keyword=Object.values(this.limitForm.value)[1];
     }
-
     console.log(Object.values(this.limitForm.value));
     console.log("limit=>"+this.limitNumber+"||keyword=>"+this.keyword);
     this.callApiSearchProducts();
@@ -101,4 +96,10 @@ export class ShopLeftSidebarComponent implements OnInit {
     console.log(event);
     this.callApiProductsByCategorie();
   }
+  ngOnDestroy(): void {
+    this.categorieSubscription?.unsubscribe();
+    this.productSubscription?.unsubscribe();
+
+  }
+
 }
