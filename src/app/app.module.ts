@@ -22,7 +22,7 @@ import { TopCategoriesComponent } from './components/top-categories/top-categori
 import { SponsorsComponent } from './components/sponsors/sponsors.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShopLeftSidebarComponent } from './components/shop-left-sidebar/shop-left-sidebar.component';
 import { LoginComponent } from './components/login/login.component';
 import { ShopexSectionComponent } from './components/shopex-section/shopex-section.component';
@@ -61,7 +61,8 @@ import { OrderCompletePageComponent } from './components/order-complete-page/ord
     ButtonModule,
     GalleriaModule,ImageModule,
     TableModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
 
   ],
   providers: [],

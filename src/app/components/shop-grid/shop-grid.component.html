@@ -15,9 +15,10 @@
         </form>
         <form >
           <label>Sort By:</label>
-          <select class="mx-2" name="" id="">
-            <option value="">Best Match</option>
-            <option value="">Price</option>
+          <select [ngModelOptions]="{ standalone: true }"
+                 [(ngModel)]="matchWord" (change)="sortProducts($event)" class="mx-2" name="" id="">
+            <option selected="true" value="best"  >Best Match</option>
+            <option value="price">Price</option>
           </select>
         </form>
         <form>

@@ -17,6 +17,8 @@ export class ShopGridComponent implements OnInit {
   productSubscription : Subscription | undefined ;
   limitNumber:number| any=20;
   keyword:string|any="";
+  matchWord: string | any = "best";
+
   limitForm= new FormGroup({
     numberPage:new FormControl('',[Validators.required, Validators.min(1),Validators.max(100)]),
     keywordPage:new FormControl('',[Validators.required]),
@@ -62,6 +64,18 @@ export class ShopGridComponent implements OnInit {
     console.log(Object.values(this.limitForm.value));
     console.log("limit=>"+this.limitNumber+"||keyword=>"+this.keyword);
     this.callApiSearchProducts();
+  }
+  sortProducts(event: any): void {
+
+    if (this.matchWord == "price") {
+      this.products.sort((a: { price: number; }, b: { price: number; }) => a.price - b.price);
+    }
+    else {
+      this.products = this.products.sort((a: { rating: number; }, b: { rating: number; }) => b.rating - a.rating);
+    }
+    console.log("Sort=>: " + this.matchWord);
+
+
   }
   ngOnDestroy(): void {
     this.productSubscription?.unsubscribe();
