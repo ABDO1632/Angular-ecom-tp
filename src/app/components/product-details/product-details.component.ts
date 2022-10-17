@@ -1,8 +1,9 @@
 
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Product } from 'src/app/interface/Product.interface';
+import { User } from 'src/app/interface/User.interface';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -13,7 +14,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductDetailsComponent implements OnInit {
   product: Product | any;
   routeSubscriptions: Subscription | any;
-
+  user:User|any;
   responsiveOptions: any[] = [
     {
       breakpoint: '1024px',
@@ -29,7 +30,7 @@ export class ProductDetailsComponent implements OnInit {
     }
   ];
 
-  constructor(private productService: ProductService, private avtiveRoute: ActivatedRoute) { }
+  constructor(private productService: ProductService, private avtiveRoute: ActivatedRoute,private router : Router) { }
 
   ngOnInit(): void {
     this.routeSubscriptions = this.avtiveRoute.params.subscribe(params => {
@@ -41,6 +42,9 @@ export class ProductDetailsComponent implements OnInit {
       })
     })
 
+  }
+  goToShopCartPage(id:number){
+    this.router.navigate(['/shopCart/'+id])
   }
   ngOnDestroy(): void {
     this.routeSubscriptions?.unsubscribe();
@@ -58,6 +62,12 @@ export class ProductDetailsComponent implements OnInit {
       exist=false;
     }
     return exist;
+  }
+  public getLocalStorage(){
+    if(this.checkLocalStorage()){
+      var u:string|any=localStorage.getItem("currentUser");
+      this.user=JSON.parse(u);
+    }
   }
   roundNumberArray(numberOfStars: number) {
     let numberOfStarsRounded = Math.round(numberOfStars);

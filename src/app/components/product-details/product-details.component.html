@@ -51,7 +51,7 @@
           </div>
           <div class="buttons d-flex flex-row mt-5 gap-3">
             <!--Only if user is logged in-->
-            <button *ngIf="checkLocalStorage()">Add to Cart <i class="fa-regular fa-heart"></i></button>
+            <button *ngIf="checkLocalStorage()" (click)="goToShopCartPage(user?.id)">Add to Cart <i class="fa-regular fa-heart"></i></button>
 
             <button [routerLink]="['/products']">Go back <i class="fa-solid fa-backward"></i></button>
 
